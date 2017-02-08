@@ -43,7 +43,7 @@ namespace MyKTV
             try
             {
                 DBHelp.Open();
-                string sql = string.Format("SELECT COUNT(*) from Admin where LoginId='{0}' AND LoginPwd='{1}'",txtAdmin.Text,txtPwd.Text);
+                string sql = string.Format("SELECT COUNT(*) from Admin where LoginName='{0}' AND LoginPwd='{1}'",txtAdmin.Text,txtPwd.Text);
                 SqlCommand cmd = new SqlCommand(sql,DBHelp.Conn);
                 int result =Convert.ToInt32( cmd.ExecuteScalar());
                 if (result == 1)
@@ -91,9 +91,11 @@ namespace MyKTV
             this.Size = panel2.Size;
             this.CenterToScreen();
             ds = new DataSet();
-            string sql = @"Select SingerName,SingerURL,SingerSex,SingerTypeName,SongName,SongURL,SongN,SongWordCount,SongTypeName,SongPlayCount 
-                            from SongInfo,SingerInfo,SingerType,SongType 
-                          WHere SongInfo.SingerId=SingerInfo.SingerId AND SongInfo.SongTypeId=SongType.SongTypeId AND SingerType.SingerTypeId=SingerInfo.SingerTypeId";
+            string sql = @"SELECT SingerName,SingerURL,SingerSex,SingerTypeName,SongName,SongURL,SongAB,SongWordCount,SongTypeName,SongPlayCount 
+                            FROM SongInfo,SingerInfo,SingerType,SongType
+                          WHERE SongInfo.SingerId=SingerInfo.SingerId 
+                          AND SongInfo.SongTypeId=SongType.SongTypeId 
+                          AND SingerType.SingerTypeId=SingerInfo.SingerTypeId";
             adapter = new SqlDataAdapter(sql,DBHelp.Conn);
             if (ds.Tables["Info"]!=null)
             {

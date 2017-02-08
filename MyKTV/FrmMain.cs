@@ -158,7 +158,7 @@ namespace MyKTV
         /// <param name="c"></param>
         public void url(string c)
         {
-            wmpKTV.URL = "E:/Sqlserverdb/KTV/Song/" + c;
+            wmpKTV.URL = "E:/KTV/Song/" + c;
         }
         /// <summary>
         /// 字数点歌

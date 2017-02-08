@@ -85,19 +85,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SongN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SongAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongWordCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongPlayCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.balloonTip1 = new DevComponents.DotNetBar.BalloonTip();
+            this.explorerBar1 = new DevComponents.DotNetBar.ExplorerBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -105,6 +107,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.explorerBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -261,6 +264,16 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1142, 730);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "退出";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -274,7 +287,7 @@
             this.SingerURL,
             this.SongName,
             this.SongURL,
-            this.SongN,
+            this.SongAB,
             this.SongWordCount,
             this.SongTypeName,
             this.SongPlayCount});
@@ -287,31 +300,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1311, 724);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.txtAdmin);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.txtPwd);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 283);
-            this.panel2.TabIndex = 4;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1142, 730);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "退出";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SingerName
             // 
@@ -355,12 +343,12 @@
             this.SongURL.Name = "SongURL";
             this.SongURL.ReadOnly = true;
             // 
-            // SongN
+            // SongAB
             // 
-            this.SongN.DataPropertyName = "SongN";
-            this.SongN.HeaderText = "歌曲名称拼音缩写";
-            this.SongN.Name = "SongN";
-            this.SongN.ReadOnly = true;
+            this.SongAB.DataPropertyName = "SongAB";
+            this.SongAB.HeaderText = "歌曲名称拼音缩写";
+            this.SongAB.Name = "SongAB";
+            this.SongAB.ReadOnly = true;
             // 
             // SongWordCount
             // 
@@ -383,6 +371,43 @@
             this.SongPlayCount.Name = "SongPlayCount";
             this.SongPlayCount.ReadOnly = true;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtAdmin);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtPwd);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(378, 283);
+            this.panel2.TabIndex = 4;
+            // 
+            // explorerBar1
+            // 
+            this.explorerBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.explorerBar1.BackColor = System.Drawing.SystemColors.Control;
+            // 
+            // 
+            // 
+            this.explorerBar1.BackStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
+            this.explorerBar1.BackStyle.BackColorGradientAngle = 90;
+            this.explorerBar1.BackStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
+            this.explorerBar1.BackStyle.Class = "";
+            this.explorerBar1.BackStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.explorerBar1.GroupImages = null;
+            this.explorerBar1.Images = null;
+            this.explorerBar1.Location = new System.Drawing.Point(-19, -19);
+            this.explorerBar1.Name = "explorerBar1";
+            this.explorerBar1.Size = new System.Drawing.Size(75, 23);
+            this.explorerBar1.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.SystemColors;
+            this.explorerBar1.TabIndex = 5;
+            this.explorerBar1.Text = "explorerBar1";
+            this.explorerBar1.ThemeAware = true;
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -390,6 +415,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1932, 1092);
+            this.Controls.Add(this.explorerBar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -407,6 +433,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.explorerBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -432,9 +459,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SongN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SongAB;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongWordCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongPlayCount;
+        private DevComponents.DotNetBar.BalloonTip balloonTip1;
+        private DevComponents.DotNetBar.ExplorerBar explorerBar1;
     }
 }

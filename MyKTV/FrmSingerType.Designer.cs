@@ -48,10 +48,10 @@
             this.ilPicture = new System.Windows.Forms.ImageList(this.components);
             this.panelSingerInfo = new System.Windows.Forms.Panel();
             this.dgvSingerInfo = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.SongName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
             this.panelSingerType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -113,6 +113,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(43, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(217, 206);
@@ -271,16 +272,6 @@
             this.dgvSingerInfo.TabIndex = 1;
             this.dgvSingerInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSingerInfo_CellMouseDoubleClick);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(670, 470);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "返回";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // SongName
             // 
             this.SongName.DataPropertyName = "SongName";
@@ -303,6 +294,16 @@
             this.SingerName.Name = "SingerName";
             this.SingerName.ReadOnly = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(670, 470);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "返回";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // FrmSingerType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -317,6 +318,7 @@
             this.Controls.Add(this.panelSingerType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSingerType";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmSingerType";
             this.Load += new System.EventHandler(this.FrmSingerType_Load);
             this.panelSingerType.ResumeLayout(false);

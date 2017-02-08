@@ -134,5 +134,5 @@ namespace MyKTV
             SongType = "儿歌";
             BindType();
         }
-    }
+    }      
 }

@@ -119,7 +119,7 @@ namespace MyKTV
                 while (reader.Read())
                 {
                     string name = reader["SingerName"].ToString();
-                    ilPicture.Images.Add(Image.FromFile("E:/Sqlserverdb/KTV/Photo/" + reader["SingerURL"].ToString()));
+                    ilPicture.Images.Add(Image.FromFile("E:/KTV/Photo/" + reader["SingerURL"].ToString()));
                     ListViewItem item = new ListViewItem(name);
                     item.ImageIndex = index;
                     lvdehp.Items.Add(item);
@@ -227,6 +227,7 @@ namespace MyKTV
         private void FrmSingerType_Load(object sender, EventArgs e)
         {
             this.Size = panelSingerType.Size;
+            this.CenterToScreen();
         }
     }
 }

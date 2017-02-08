@@ -35,7 +35,7 @@ namespace MyKTV
         private void button2_Click(object sender, EventArgs e)
         {
             DataSet ds = new DataSet();
-            string sql = "SELECT SingerName,SongN,SongName,SongURL FROM SingerInfo,SongInfo WHERE SingerInfo.SingerId=SongInfo.SingerId ";
+            string sql = "SELECT SingerName,SongAB,SongName,SongURL FROM SingerInfo,SongInfo WHERE SingerInfo.SingerId=SongInfo.SingerId ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql,DBHelp.Conn);
             if (ds.Tables["Info"]!=null)
             {
