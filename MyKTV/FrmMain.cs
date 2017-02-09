@@ -48,7 +48,7 @@ namespace MyKTV
             }
             else
             {
-                MessageBox.Show("以达到最大音量！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("以达到最大音量！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         /// <summary>
