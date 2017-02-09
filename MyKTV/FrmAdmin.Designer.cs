@@ -98,7 +98,6 @@
             this.SongTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongPlayCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.balloonTip1 = new DevComponents.DotNetBar.BalloonTip();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -437,6 +436,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SongWordCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongPlayCount;
-        private DevComponents.DotNetBar.BalloonTip balloonTip1;
     }
 }
