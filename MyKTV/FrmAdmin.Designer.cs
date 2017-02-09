@@ -99,7 +99,6 @@
             this.SongPlayCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.balloonTip1 = new DevComponents.DotNetBar.BalloonTip();
-            this.explorerBar1 = new DevComponents.DotNetBar.ExplorerBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -107,7 +106,6 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.explorerBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -383,30 +381,8 @@
             this.panel2.Controls.Add(this.txtPwd);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 283);
+            this.panel2.Size = new System.Drawing.Size(378, 280);
             this.panel2.TabIndex = 4;
-            // 
-            // explorerBar1
-            // 
-            this.explorerBar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-            this.explorerBar1.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // 
-            // 
-            this.explorerBar1.BackStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground2;
-            this.explorerBar1.BackStyle.BackColorGradientAngle = 90;
-            this.explorerBar1.BackStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ExplorerBarBackground;
-            this.explorerBar1.BackStyle.Class = "";
-            this.explorerBar1.BackStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.explorerBar1.GroupImages = null;
-            this.explorerBar1.Images = null;
-            this.explorerBar1.Location = new System.Drawing.Point(-19, -19);
-            this.explorerBar1.Name = "explorerBar1";
-            this.explorerBar1.Size = new System.Drawing.Size(75, 23);
-            this.explorerBar1.StockStyle = DevComponents.DotNetBar.eExplorerBarStockStyle.SystemColors;
-            this.explorerBar1.TabIndex = 5;
-            this.explorerBar1.Text = "explorerBar1";
-            this.explorerBar1.ThemeAware = true;
             // 
             // FrmAdmin
             // 
@@ -415,7 +391,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1932, 1092);
-            this.Controls.Add(this.explorerBar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -433,7 +408,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.explorerBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -464,6 +438,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SongTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongPlayCount;
         private DevComponents.DotNetBar.BalloonTip balloonTip1;
-        private DevComponents.DotNetBar.ExplorerBar explorerBar1;
     }
 }
