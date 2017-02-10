@@ -17,9 +17,15 @@ namespace MyKTV
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 歌曲信息管理单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-
+            FrmEditSong song = new FrmEditSong();
+            song.Show();
         }
 
         /// <summary>
@@ -29,7 +35,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmEditSong edit = new FrmEditSong();
+            FrmEditSinger edit = new FrmEditSinger();
             edit.Show();
         }
 

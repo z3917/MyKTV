@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MyKTV
 {
-    public partial class FrmEditSong : Form
+    public partial class FrmSingerList : Form
     {
-        public FrmEditSong()
+        public FrmSingerList()
         {
             InitializeComponent();
         }
