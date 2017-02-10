@@ -50,10 +50,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ptbMute1 = new System.Windows.Forms.PictureBox();
+            this.stop = new System.Windows.Forms.PictureBox();
+            this.play = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.wmpKTV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbJian)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMute1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.play)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -93,7 +99,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(113, 490);
+            this.label6.Location = new System.Drawing.Point(63, 624);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 15);
             this.label6.TabIndex = 0;
@@ -290,6 +296,42 @@
             this.label5.Text = "字数点歌";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // ptbMute1
+            // 
+            this.ptbMute1.BackColor = System.Drawing.Color.Transparent;
+            this.ptbMute1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbMute1.BackgroundImage")));
+            this.ptbMute1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbMute1.Location = new System.Drawing.Point(1010, 399);
+            this.ptbMute1.Name = "ptbMute1";
+            this.ptbMute1.Size = new System.Drawing.Size(50, 50);
+            this.ptbMute1.TabIndex = 5;
+            this.ptbMute1.TabStop = false;
+            this.ptbMute1.Click += new System.EventHandler(this.ptbMute_Click);
+            // 
+            // stop
+            // 
+            this.stop.BackColor = System.Drawing.Color.Transparent;
+            this.stop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stop.BackgroundImage")));
+            this.stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.stop.Location = new System.Drawing.Point(71, 552);
+            this.stop.Name = "stop";
+            this.stop.Size = new System.Drawing.Size(50, 50);
+            this.stop.TabIndex = 5;
+            this.stop.TabStop = false;
+            this.stop.Click += new System.EventHandler(this.ptbMute_Click);
+            // 
+            // play
+            // 
+            this.play.BackColor = System.Drawing.Color.Transparent;
+            this.play.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("play.BackgroundImage")));
+            this.play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.play.Location = new System.Drawing.Point(71, 496);
+            this.play.Name = "play";
+            this.play.Size = new System.Drawing.Size(50, 50);
+            this.play.TabIndex = 5;
+            this.play.TabStop = false;
+            this.play.Click += new System.EventHandler(this.ptbMute_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -301,6 +343,9 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ptbJian);
+            this.Controls.Add(this.ptbMute1);
+            this.Controls.Add(this.play);
+            this.Controls.Add(this.stop);
             this.Controls.Add(this.ptbMute);
             this.Controls.Add(this.ptbAdd);
             this.Controls.Add(this.button1);
@@ -329,6 +374,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbJian)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMute1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.play)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,6 +404,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox ptbMute1;
+        private System.Windows.Forms.PictureBox stop;
+        private System.Windows.Forms.PictureBox play;
     }
 }
 

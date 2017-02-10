@@ -50,6 +50,11 @@ namespace MyKTV
             {
                 MessageBox.Show("以达到最大音量！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            if (wmpKTV.settings.volume != 0)
+            {
+                ptbMute1.Visible = false;
+                ptbMute.Visible = true;
+            }
         }
         /// <summary>
         /// 减少音量按钮事件
@@ -69,6 +74,12 @@ namespace MyKTV
             {
                 MessageBox.Show("以达到最小音量！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            if (wmpKTV.settings.volume == 0)
+            {
+                ptbMute.Visible = false;
+                ptbMute1.Location = ptbMute.Location;
+                ptbMute1.Visible = true;
+            }
         }
         /// <summary>
         /// 静音按钮事件
@@ -81,11 +92,16 @@ namespace MyKTV
             {
                 wmpKTV.settings.volume = volume;
                 button1.Text = volume.ToString();
+                ptbMute1.Visible = false;
+                ptbMute.Visible = true;
             }
             else
             {
                 wmpKTV.settings.volume = 0;
                 button1.Text = "0";
+                ptbMute.Visible = false;
+                ptbMute1.Location = ptbMute.Location;
+                ptbMute1.Visible = true;
             }
 
         }
@@ -96,6 +112,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            ptbMute1.Visible = false;
             wmpKTV.settings.volume = volume;//默认声音50
         }
         /// <summary>
@@ -122,7 +139,7 @@ namespace MyKTV
             }
             else
             {
-                wmpKTV.Ctlcontrols.play();//暂停视频
+                wmpKTV.Ctlcontrols.play();//播放视频
                 a = true;
             }
 
