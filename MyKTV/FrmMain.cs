@@ -126,7 +126,6 @@ namespace MyKTV
         private void FrmMain_Load(object sender, EventArgs e)
         {
             image.Play();//播放动态背景
-            MessageBox.Show(label5.Size.ToString());
             ptbMute1.Visible = false;
             wmpKTV.settings.volume = volume;//默认声音50
             play.Visible = false;
@@ -186,7 +185,7 @@ namespace MyKTV
         {
             FrmSongList list = new FrmSongList();
             list.main = this;
-            list.ShowDialog();
+            list.Show();
             //wmpKTV.URL = "E:/Sqlserverdb/KTV/Song/" + list.d;
 
         }
@@ -233,23 +232,13 @@ namespace MyKTV
 
         }
         /// <summary>
-        /// 重播事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label10_Click(object sender, EventArgs e)
-        {
-            wmpKTV.Ctlcontrols.stop();
-            wmpKTV.Ctlcontrols.play();
-        }
-        /// <summary>
         /// 管理员后台
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmLogin admin = new FrmLogin();
+            Form admin = new Form();
             admin.Show();
         }
         /// <summary>
@@ -304,6 +293,15 @@ namespace MyKTV
                 e.Graphics.DrawImage(image.Image, new Point(0, 0));
             }
         }
-       
+        /// <summary>
+        /// 重唱按钮单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PicGlee_Click(object sender, EventArgs e)
+        {
+            wmpKTV.Ctlcontrols.stop();
+            wmpKTV.Ctlcontrols.play();
+        }
     }
 }
