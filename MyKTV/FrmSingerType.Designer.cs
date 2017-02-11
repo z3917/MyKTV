@@ -52,6 +52,8 @@
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelSingerType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,11 +66,14 @@
             this.panelSinger.SuspendLayout();
             this.panelSingerInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSingerInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSingerType
             // 
             this.panelSingerType.BackColor = System.Drawing.Color.Transparent;
+            this.panelSingerType.Controls.Add(this.label1);
+            this.panelSingerType.Controls.Add(this.pictureBox7);
             this.panelSingerType.Controls.Add(this.button1);
             this.panelSingerType.Controls.Add(this.pictureBox3);
             this.panelSingerType.Controls.Add(this.pictureBox2);
@@ -92,7 +97,7 @@
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(542, 29);
+            this.pictureBox3.Location = new System.Drawing.Point(497, 55);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(217, 206);
             this.pictureBox3.TabIndex = 0;
@@ -103,7 +108,7 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(285, 29);
+            this.pictureBox2.Location = new System.Drawing.Point(255, 55);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(217, 206);
             this.pictureBox2.TabIndex = 0;
@@ -114,7 +119,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 55);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(217, 206);
             this.pictureBox1.TabIndex = 0;
@@ -304,6 +309,26 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(766, 50);
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(170, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "歌手点歌";
+            // 
             // FrmSingerType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -322,6 +347,7 @@
             this.Text = "FrmSingerType";
             this.Load += new System.EventHandler(this.FrmSingerType_Load);
             this.panelSingerType.ResumeLayout(false);
+            this.panelSingerType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -333,6 +359,7 @@
             this.panelSinger.ResumeLayout(false);
             this.panelSingerInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSingerInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,5 +388,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

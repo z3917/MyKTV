@@ -8,17 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace MyKTV
 {
     public partial class FrmMain : Form
     {
-        public int volume = 50;
-
+        AutoSizeFormClass asc = new AutoSizeFormClass();    //1.声明自适应类实例
+        public int volume = 50;//初始音量
         bool a = true;//默认播放
+        AnimateImage image;//背景动画
+       
         public FrmMain()
         {
             InitializeComponent();
+
+            #region 设置背景动态图
+            image = new AnimateImage(Image.FromFile(@"C:\Users\dell\Pictures\3.gif"));
+            image.OnFrameChanged += new EventHandler<EventArgs>(image_OnFrameChanged);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            #endregion
+        }
+        void image_OnFrameChanged(object sender, EventArgs e)
+        {
+            Invalidate();
         }
         /// <summary>
         /// 退出程序
@@ -54,6 +65,7 @@ namespace MyKTV
             {
                 ptbMute1.Visible = false;
                 ptbMute.Visible = true;
+                ptbMute1.Enabled = true;
             }
         }
         /// <summary>
@@ -79,6 +91,7 @@ namespace MyKTV
                 ptbMute.Visible = false;
                 ptbMute1.Location = ptbMute.Location;
                 ptbMute1.Visible = true;
+                ptbMute1.Enabled = false;
             }
         }
         /// <summary>
@@ -112,8 +125,16 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            image.Play();//播放动态背景
+            MessageBox.Show(label5.Size.ToString());
             ptbMute1.Visible = false;
             wmpKTV.settings.volume = volume;//默认声音50
+            play.Visible = false;
+            label16.Text = DateTime.Now.ToString("HH:mm");//开房时间
+            label17.Text = DateTime.Now.ToString("HH:mm:ss");//当前时间
+            timer1.Interval = 1000;//timer间隔1000毫秒
+            timer1.Enabled = true;//计时器启动
+            asc.controllInitializeSize(this); //记录窗体和其控件的初始位置和大小
         }
         /// <summary>
         /// 切歌按钮事件
@@ -122,7 +143,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void label9_Click(object sender, EventArgs e)
         {
-            wmpKTV.URL = "E:/Sqlserverdb/KTV/影视金曲/G.E.M.邓紫棋 - 光年之外.mkv";
+            wmpKTV.URL = @"E:\KTV\Song\G.E.M.邓紫棋 - 光年之外.mkv";
         }
         /// <summary>
         /// 播放或在听按钮事件
@@ -199,11 +220,11 @@ namespace MyKTV
             word.main = this;
             word.ShowDialog();
         }
-       /// <summary>
-       /// 分类点歌
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+        /// <summary>
+        /// 分类点歌
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label2_Click(object sender, EventArgs e)
         {
             Type type = new Type();
@@ -218,7 +239,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void label10_Click(object sender, EventArgs e)
         {
-           wmpKTV.Ctlcontrols.stop();
+            wmpKTV.Ctlcontrols.stop();
             wmpKTV.Ctlcontrols.play();
         }
         /// <summary>
@@ -232,5 +253,58 @@ namespace MyKTV
             admin.Show();
             admin.main = this;
         }
+        /// <summary>
+        /// 播放按钮单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void play_Click(object sender, EventArgs e)
+        {
+            stop.Visible = true;
+            play.Visible = false;
+            wmpKTV.Ctlcontrols.play();//播放视频
+        }
+        /// <summary>
+        /// 暂停按钮单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void stop_Click(object sender, EventArgs e)
+        {
+            play.Visible = true;
+            stop.Visible = false;
+            wmpKTV.Ctlcontrols.pause();//暂停视频
+        }
+        /// <summary>
+        /// 计时器事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label17.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+        /// <summary>
+        /// 窗体大小变换时的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMain_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
+        }
+        /// <summary>
+        /// 窗体重绘时引发的事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMain_Paint(object sender, PaintEventArgs e)
+        {
+            lock (image.Image)
+            {
+                e.Graphics.DrawImage(image.Image, new Point(0, 0));
+            }
+        }
+       
     }
 }

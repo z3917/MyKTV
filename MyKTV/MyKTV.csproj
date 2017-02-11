@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimateImage.cs" />
+    <Compile Include="AutoSizeFormClass.cs" />
+    <Compile Include="ClassSetControlFontSize.cs" />
     <Compile Include="DBHelp.cs" />
     <Compile Include="FrmAdmin.cs">
       <SubType>Form</SubType>

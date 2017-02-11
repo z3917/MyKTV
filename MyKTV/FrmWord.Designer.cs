@@ -35,7 +35,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SongName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SongN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SongAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,7 +83,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SongName,
-            this.SongN,
+            this.SongAB,
             this.SingerName,
             this.SongURL});
             this.dataGridView1.Location = new System.Drawing.Point(12, 91);
@@ -103,13 +103,13 @@
             this.SongName.Name = "SongName";
             this.SongName.ReadOnly = true;
             // 
-            // SongN
+            // SongAB
             // 
-            this.SongN.DataPropertyName = "SongN";
-            this.SongN.HeaderText = "歌曲名称拼音";
-            this.SongN.Name = "SongN";
-            this.SongN.ReadOnly = true;
-            this.SongN.Visible = false;
+            this.SongAB.DataPropertyName = "SongAB";
+            this.SongAB.HeaderText = "歌曲名称拼音";
+            this.SongAB.Name = "SongAB";
+            this.SongAB.ReadOnly = true;
+            this.SongAB.Visible = false;
             // 
             // SingerName
             // 
@@ -155,7 +155,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SongN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SongAB;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
     }

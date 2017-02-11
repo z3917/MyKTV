@@ -43,7 +43,7 @@ namespace MyKTV
             }
             adapter.Fill(ds,"Info");
             DataView dv = ds.Tables["Info"].DefaultView;
-            dv.RowFilter = string.Format("SongN LIKE '%{0}%' OR SongName LIKE '%{0}%'",textBox1.Text);
+            dv.RowFilter = string.Format("SongAB LIKE '%{0}%' OR SongName LIKE '%{0}%'",textBox1.Text);
             dataGridView1.DataSource = dv;
 
         }
