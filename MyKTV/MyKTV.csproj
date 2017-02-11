@@ -49,17 +49,27 @@
     <Compile Include="AutoSizeFormClass.cs" />
     <Compile Include="ClassSetControlFontSize.cs" />
     <Compile Include="DBHelp.cs" />
-    <Compile Include="FrmAdmin.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAdmin.Designer.cs">
-      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdmin.cs" />
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSingerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSingerList.Designer.cs">
+      <DependentUpon>FrmSingerList.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSingerType.cs">
       <SubType>Form</SubType>
@@ -93,8 +103,17 @@
     <Compile Include="Type.Designer.cs">
       <DependentUpon>Type.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAdmin.resx">
-      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditSinger.resx">
+      <DependentUpon>FrmEditSinger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditSong.resx">
+      <DependentUpon>FrmEditSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

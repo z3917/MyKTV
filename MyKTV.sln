@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyKTV", "MyKTV\MyKTV.csproj", "{B416048E-42F5-4324-822E-94DFA67DA4D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{F59004E0-311F-4663-BBC9-0E26C23CAF90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{B416048E-42F5-4324-822E-94DFA67DA4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B416048E-42F5-4324-822E-94DFA67DA4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B416048E-42F5-4324-822E-94DFA67DA4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59004E0-311F-4663-BBC9-0E26C23CAF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59004E0-311F-4663-BBC9-0E26C23CAF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59004E0-311F-4663-BBC9-0E26C23CAF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59004E0-311F-4663-BBC9-0E26C23CAF90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

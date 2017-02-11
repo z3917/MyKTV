@@ -249,9 +249,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmAdmin admin = new FrmAdmin();
+            FrmLogin admin = new FrmLogin();
             admin.Show();
-            admin.main = this;
         }
         /// <summary>
         /// 播放按钮单击事件
