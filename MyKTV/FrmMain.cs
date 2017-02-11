@@ -22,7 +22,7 @@ namespace MyKTV
             InitializeComponent();
 
             #region 设置背景动态图
-            image = new AnimateImage(Image.FromFile(@"C:\Users\dell\Pictures\3.gif"));
+            image = new AnimateImage(Image.FromFile(@"C:\Users\dell\Pictures\4.gif"));
             image.OnFrameChanged += new EventHandler<EventArgs>(image_OnFrameChanged);
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             #endregion
@@ -134,15 +134,6 @@ namespace MyKTV
             timer1.Interval = 1000;//timer间隔1000毫秒
             timer1.Enabled = true;//计时器启动
             asc.controllInitializeSize(this); //记录窗体和其控件的初始位置和大小
-        }
-        /// <summary>
-        /// 切歌按钮事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label9_Click(object sender, EventArgs e)
-        {
-            wmpKTV.URL = @"E:\KTV\Song\G.E.M.邓紫棋 - 光年之外.mkv";
         }
         /// <summary>
         /// 播放或在听按钮事件
@@ -302,6 +293,15 @@ namespace MyKTV
         {
             wmpKTV.Ctlcontrols.stop();
             wmpKTV.Ctlcontrols.play();
+        }
+        /// <summary>
+        /// 切歌按钮单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PicExchange_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
