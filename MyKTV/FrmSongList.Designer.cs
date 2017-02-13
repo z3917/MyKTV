@@ -31,8 +31,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.SongName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongPlayCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,16 +55,17 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SongName,
+            this.colif,
             this.SingerName,
-            this.SongURL,
             this.SongPlayCount});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 12);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(655, 419);
+            this.dataGridView1.Size = new System.Drawing.Size(653, 431);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
@@ -75,20 +76,20 @@
             this.SongName.Name = "SongName";
             this.SongName.ReadOnly = true;
             // 
+            // colif
+            // 
+            this.colif.DataPropertyName = "SongId";
+            this.colif.HeaderText = "ID";
+            this.colif.Name = "colif";
+            this.colif.ReadOnly = true;
+            this.colif.Visible = false;
+            // 
             // SingerName
             // 
             this.SingerName.DataPropertyName = "SingerName";
             this.SingerName.HeaderText = "歌手名";
             this.SingerName.Name = "SingerName";
             this.SingerName.ReadOnly = true;
-            // 
-            // SongURL
-            // 
-            this.SongURL.DataPropertyName = "SongURL";
-            this.SongURL.HeaderText = "歌曲路径";
-            this.SongURL.Name = "SongURL";
-            this.SongURL.ReadOnly = true;
-            this.SongURL.Visible = false;
             // 
             // SongPlayCount
             // 
@@ -108,6 +109,7 @@
             this.Name = "FrmSongList";
             this.Text = "FrmSongList";
             this.Load += new System.EventHandler(this.FrmSongList_Load);
+            this.SizeChanged += new System.EventHandler(this.FrmSongList_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -118,8 +120,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colif;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongPlayCount;
     }
 }

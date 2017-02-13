@@ -15,6 +15,9 @@ namespace MyKTV
     {
         public FrmMain main;
         public string SongType;
+        //给鼠标双击事件使用的值
+        int avgko = 0;
+
         public Type()
         {
             InitializeComponent();
@@ -66,7 +69,7 @@ namespace MyKTV
             panel2.Visible = true;
             panel2.Location = panel1.Location;
             DataSet ds = new DataSet();
-            string sql = "SELECT SingerName,SongName,SongURL,SongTypeName FROM SingerInfo,SongInfo,SongType WHERE SingerInfo.SingerId=SongInfo.SingerId AND SongType.SongTypeId=SongInfo.SongTypeId ";
+            string sql = "SELECT SingerName,SongName,SongURL,SongTypeName,SongId FROM SingerInfo,SongInfo,SongType WHERE SingerInfo.SingerId=SongInfo.SingerId AND SongType.SongTypeId=SongInfo.SongTypeId ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DBHelp.Conn);
             adapter.Fill(ds, "Info");
             DataView dv = ds.Tables["Info"].DefaultView;
@@ -80,8 +83,18 @@ namespace MyKTV
         /// <param name="e"></param>
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string ur= dataGridView1.SelectedRows[0].Cells["SongURL"].Value.ToString();
-            main.url(ur);
+            if (avgko == PlayList.avg.Length)
+            {
+                MessageBox.Show("已点列表已满", "温馨提示!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+            while (PlayList.avg[avgko] != 0)
+            {
+                avgko++;
+            }
+            PlayList.avg[avgko] = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["colif"].Value);
+            // MessageBox.Show("添加" + Convert.ToString(dgvSingerInfo.SelectedRows[0].Cells["colif"].Value) + "歌曲成功！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            avgko++;
         }
         /// <summary>
         /// 影视金曲

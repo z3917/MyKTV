@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSingerType));
             this.panelSingerType = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -48,13 +50,13 @@
             this.ilPicture = new System.Windows.Forms.ImageList(this.components);
             this.panelSingerInfo = new System.Windows.Forms.Panel();
             this.dgvSingerInfo = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.SongName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelSingerType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,7 +68,6 @@
             this.panelSinger.SuspendLayout();
             this.panelSingerInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSingerInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSingerType
@@ -82,6 +83,26 @@
             this.panelSingerType.Name = "panelSingerType";
             this.panelSingerType.Size = new System.Drawing.Size(766, 509);
             this.panelSingerType.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(170, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "歌手点歌";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(766, 50);
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
             // 
             // button1
             // 
@@ -266,6 +287,7 @@
             this.dgvSingerInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SongName,
             this.SongURL,
+            this.colif,
             this.SingerName});
             this.dgvSingerInfo.Location = new System.Drawing.Point(3, 43);
             this.dgvSingerInfo.MultiSelect = false;
@@ -276,6 +298,16 @@
             this.dgvSingerInfo.Size = new System.Drawing.Size(763, 397);
             this.dgvSingerInfo.TabIndex = 1;
             this.dgvSingerInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSingerInfo_CellMouseDoubleClick);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(670, 470);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "返回";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // SongName
             // 
@@ -292,42 +324,20 @@
             this.SongURL.ReadOnly = true;
             this.SongURL.Visible = false;
             // 
+            // colif
+            // 
+            this.colif.DataPropertyName = "SongId";
+            this.colif.HeaderText = "ID";
+            this.colif.Name = "colif";
+            this.colif.ReadOnly = true;
+            this.colif.Visible = false;
+            // 
             // SingerName
             // 
             this.SingerName.DataPropertyName = "SingerName";
             this.SingerName.HeaderText = "歌手";
             this.SingerName.Name = "SingerName";
             this.SingerName.ReadOnly = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(670, 470);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "返回";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(766, 50);
-            this.pictureBox7.TabIndex = 2;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(170, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "歌手点歌";
             // 
             // FrmSingerType
             // 
@@ -346,8 +356,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmSingerType";
             this.Load += new System.EventHandler(this.FrmSingerType_Load);
+            this.SizeChanged += new System.EventHandler(this.FrmSingerType_SizeChanged);
             this.panelSingerType.ResumeLayout(false);
             this.panelSingerType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -359,7 +371,6 @@
             this.panelSinger.ResumeLayout(false);
             this.panelSingerInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSingerInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -385,10 +396,11 @@
         private System.Windows.Forms.Panel panelSingerInfo;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dgvSingerInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SongName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
     }
 }

@@ -18,6 +18,10 @@ namespace MyKTV
         DataSet ds = new DataSet();
         SqlDataAdapter adapter;
         DataView dv;
+        AutoSizeFormClass asc = new AutoSizeFormClass();   //1.声明自适应类实例
+        //给鼠标双击事件使用的值
+        int avgko = 0;
+
         public FrmWordCount()
         {
             InitializeComponent();
@@ -61,7 +65,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmWordCount_Load(object sender, EventArgs e)
         {
-            string sql = "SELECT SingerName,SongName,SongWordCount,SongURL FROM SingerInfo,SongInfo WHERE SingerInfo.SingerId=SongInfo.SingerId ";
+            asc.controllInitializeSize(this);//记录窗体和其控件的初始位置和大小
+            string sql = "SELECT SingerName,SongName,SongWordCount,SongURL,SongId FROM SingerInfo,SongInfo WHERE SingerInfo.SingerId=SongInfo.SingerId ";
             adapter = new SqlDataAdapter(sql, DBHelp.Conn);
             if (ds.Tables["Info"] != null)
             {
@@ -70,16 +75,8 @@ namespace MyKTV
             adapter.Fill(ds, "Info");
             dv = ds.Tables["Info"].DefaultView;
             dataGridView1.DataSource = dv;
-        }
-        /// <summary>
-        /// 单击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string URL = dataGridView1.SelectedRows[0].Cells["SongURL"].Value.ToString();
-            main.url(URL);
+            this.Size = main.X;//本窗体的大小等于主窗体中的panel1的大小
+            this.Location = main.zuobiao();//本窗体的左上角坐标等于主窗体中的panel1的左上角坐标
         }
         /// <summary>
         /// 单击2
@@ -196,33 +193,32 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 10;
-            dv.RowFilter = "SongWordCount=" + count.ToString();
+            dv.RowFilter = "SongWordCount>=" + count.ToString();
         }
         /// <summary>
-        /// 单击11
+        /// 窗体大小发生改变时
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void label11_Click(object sender, EventArgs e)
+        private void FrmWordCount_SizeChanged(object sender, EventArgs e)
         {
-            panel2.Visible = true;
-            panel1.Visible = false;
-            panel2.Location = panel1.Location;
-            count = 11;
-            dv.RowFilter = "SongWordCount=" + count.ToString();
+            asc.controlAutoSize(this);
         }
-        /// <summary>
-        /// 单击12
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void label12_Click(object sender, EventArgs e)
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            panel2.Visible = true;
-            panel1.Visible = false;
-            panel2.Location = panel1.Location;
-            count = 12;
-            dv.RowFilter = "SongWordCount=" + count.ToString();
+            if (avgko == PlayList.avg.Length)
+            {
+                MessageBox.Show("已点列表已满", "温馨提示!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+            while (PlayList.avg[avgko] != 0)
+            {
+                avgko++;
+            }
+            PlayList.avg[avgko] = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["colif"].Value);
+            // MessageBox.Show("添加" + Convert.ToString(dgvSingerInfo.SelectedRows[0].Cells["colif"].Value) + "歌曲成功！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            avgko++;
         }
     }
 }

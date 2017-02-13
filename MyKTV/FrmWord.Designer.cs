@@ -38,6 +38,7 @@
             this.SongAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SongURL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +86,8 @@
             this.SongName,
             this.SongAB,
             this.SingerName,
-            this.SongURL});
+            this.SongURL,
+            this.colif});
             this.dataGridView1.Location = new System.Drawing.Point(12, 91);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -126,6 +128,14 @@
             this.SongURL.ReadOnly = true;
             this.SongURL.Visible = false;
             // 
+            // colif
+            // 
+            this.colif.DataPropertyName = "SongId";
+            this.colif.HeaderText = "ID";
+            this.colif.Name = "colif";
+            this.colif.ReadOnly = true;
+            this.colif.Visible = false;
+            // 
             // FrmWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -158,5 +168,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SongAB;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SongURL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colif;
     }
 }

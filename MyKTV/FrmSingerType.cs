@@ -17,6 +17,11 @@ namespace MyKTV
         public string type;//地区类型
         public string URL;//歌曲路径
         public FrmMain main;
+        AutoSizeFormClass asc = new AutoSizeFormClass();   //1.声明自适应类实例
+        //给鼠标双击事件使用的值
+        int avgko = 0;
+
+        int avg = 0;
         public FrmSingerType()
         {
             InitializeComponent();
@@ -119,7 +124,7 @@ namespace MyKTV
                 while (reader.Read())
                 {
                     string name = reader["SingerName"].ToString();
-                    ilPicture.Images.Add(Image.FromFile("E:/KTV/Photo/" + reader["SingerURL"].ToString()));
+                    ilPicture.Images.Add(Image.FromFile(KTVUtil.singerPhotoPath + reader["SingerURL"].ToString()));
                     ListViewItem item = new ListViewItem(name);
                     item.ImageIndex = index;
                     lvdehp.Items.Add(item);
@@ -198,7 +203,7 @@ namespace MyKTV
             panelSingerInfo.Visible = true;
             panelSingerInfo.Location = panelSinger.Location;
             DataSet ds = new DataSet();
-            string sql = string.Format(@"SELECT SingerName,SongName,SongURL FROM SongInfo,SingerInfo,SingerType 
+            string sql = string.Format(@"SELECT SingerName,SongName,SongURL,SongId FROM SongInfo,SingerInfo,SingerType 
                                         WHERE SongInfo.SingerId = SingerInfo.SingerId AND SingerType.SingerTypeId = SingerInfo.SingerTypeId 
                                         AND SingerSex = '{0}' AND SingerTypeName = '{1}' AND SingerName = '{2}'", sex, type, lvdehp.SelectedItems[0].Text);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DBHelp.Conn);
@@ -216,8 +221,18 @@ namespace MyKTV
         /// <param name="e"></param>
         private void dgvSingerInfo_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-           URL = dgvSingerInfo.SelectedRows[0].Cells["SongURL"].Value.ToString();
-            main.url(URL);
+            if (avgko == PlayList.avg.Length)
+            {
+                MessageBox.Show("已点列表已满","温馨提示!",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                return;
+            }
+            while (PlayList.avg[avgko] != 0)
+            {
+                avgko++;
+            }
+            PlayList.avg[avgko] = Convert.ToInt32(dgvSingerInfo.SelectedRows[0].Cells["colif"].Value);
+           // MessageBox.Show("添加" + Convert.ToString(dgvSingerInfo.SelectedRows[0].Cells["colif"].Value) + "歌曲成功！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            avgko++;
         }
         /// <summary>
         /// 窗口加载事件
@@ -226,8 +241,57 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmSingerType_Load(object sender, EventArgs e)
         {
-            this.Size = panelSingerType.Size;
-            this.CenterToScreen();
+            asc.controllInitializeSize(this);//记录窗体和其控件的初始位置和大小
+            this.Size = main.X;//本窗体的大小等于主窗体中的panel1的大小
+            this.Location = main.zuobiao();//本窗体的左上角坐标等于主窗体中的panel1的左上角坐标
+            Route();//给路径赋值
+        }
+        /// <summary>
+        /// 给窗体加载时候赋值
+        /// </summary>
+        public void Route()
+        {
+            string sql = "select ResourcePath from Resource where ResourceType='photo'";
+            //给静态歌手路径赋值
+            KTVUtil.singerPhotoPath = (string)select1(sql);
+
+            string sql2 = "select ResourcePath from Resource where ResourceType='Song'";
+            //给静态歌曲路径赋值
+            KTVUtil.songPath = (string)select1(sql2);
+        }
+
+        /// <summary>
+        /// 返回整型
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public object select1(string sql)
+        {
+            object name = null;
+            SqlCommand wo = new SqlCommand(sql, DBHelp.Conn);
+            try
+            {
+                DBHelp.Open();
+                name = wo.ExecuteScalar();
+            }
+            catch (Exception en)
+            {
+                MessageBox.Show(en.Message);
+            }
+            finally
+            {
+                DBHelp.Close();
+            }
+            return name;
+        }
+        /// <summary>
+        /// 窗体大小发生改变时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmSingerType_SizeChanged(object sender, EventArgs e)
+        {
+            asc.controlAutoSize(this);
         }
     }
 }
