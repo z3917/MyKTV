@@ -9,7 +9,7 @@ namespace MyKTV
     class PlayList
     {
         //public static string name;
-        public static int[] avg = new int[5];
+        public static int[] avg = new int[50];
 
     }
 }

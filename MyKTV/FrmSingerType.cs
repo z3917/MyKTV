@@ -21,7 +21,6 @@ namespace MyKTV
         //给鼠标双击事件使用的值
         int avgko = 0;
 
-        int avg = 0;
         public FrmSingerType()
         {
             InitializeComponent();
