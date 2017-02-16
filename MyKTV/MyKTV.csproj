@@ -31,10 +31,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +69,12 @@
     </Compile>
     <Compile Include="FrmSongList.Designer.cs">
       <DependentUpon>FrmSongList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVoid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVoid.Designer.cs">
+      <DependentUpon>frmVoid.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmWord.cs">
       <SubType>Form</SubType>
@@ -98,6 +108,9 @@
     <EmbeddedResource Include="FrmSongList.resx">
       <DependentUpon>FrmSongList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVoid.resx">
+      <DependentUpon>frmVoid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmWord.resx">
       <DependentUpon>FrmWord.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Type.resx">
       <DependentUpon>Type.cs</DependentUpon>
@@ -164,6 +178,45 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\标题.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\下.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\返.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\收起.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\展开.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\展开1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20135793141.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

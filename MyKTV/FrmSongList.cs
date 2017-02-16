@@ -13,7 +13,7 @@ namespace MyKTV
 {
     public partial class FrmSongList : Form
     {
-        AutoSizeFormClass asc = new AutoSizeFormClass();   //1.声明自适应类实例
+     
         public string songURL;
         public FrmMain main;
         //给鼠标双击事件使用的值
@@ -39,7 +39,6 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmSongList_Load(object sender, EventArgs e)
         {
-            asc.controllInitializeSize(this);//记录窗体和其控件的初始位置和大小
             DataSet ds = new DataSet();
             string sql = "Select SongName,SingerName,SongPlayCount,SongId from SongInfo,SingerInfo WHERE SongInfo.SingerId=SingerInfo.SingerId Order by SongPlayCount desc";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DBHelp.Conn);
@@ -49,7 +48,6 @@ namespace MyKTV
             }
             adapter.Fill(ds, "Info");
             dataGridView1.DataSource = ds.Tables["Info"];
-            this.Size = main.X;//本窗体的大小等于主窗体中的panel1的大小
             this.Location = main.zuobiao();//本窗体的左上角坐标等于主窗体中的panel1的左上角坐标
         }
         /// <summary>
@@ -79,7 +77,6 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmSongList_SizeChanged(object sender, EventArgs e)
         {
-            asc.controlAutoSize(this);
         }
     }
 }

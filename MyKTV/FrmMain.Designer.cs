@@ -30,26 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.wmpKTV = new AxWMPLib.AxWindowsMediaPlayer();
             this.button1 = new System.Windows.Forms.Button();
             this.ptbAdd = new System.Windows.Forms.PictureBox();
             this.ptbJian = new System.Windows.Forms.PictureBox();
             this.ptbMute = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.ptbMute1 = new System.Windows.Forms.PictureBox();
             this.stop = new System.Windows.Forms.PictureBox();
             this.play = new System.Windows.Forms.PictureBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -58,7 +51,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.PicGlee = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PicSinger = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.PicCount = new System.Windows.Forms.PictureBox();
@@ -66,6 +58,7 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtStatus1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -77,10 +70,26 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.wmpCheer = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.wmpKTV)).BeginInit();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.Out = new System.Windows.Forms.Timer(this.components);
+            this.Go = new System.Windows.Forms.Timer(this.components);
+            this.txtName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.wmpCheer = new AxWMPLib.AxWindowsMediaPlayer();
+            this.wmpKTV = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbJian)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMute)).BeginInit();
@@ -95,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicGlee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSinger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCount)).BeginInit();
@@ -108,17 +116,16 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wmpCheer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpKTV)).BeginInit();
             this.SuspendLayout();
-            // 
-            // wmpKTV
-            // 
-            this.wmpKTV.Enabled = true;
-            this.wmpKTV.Location = new System.Drawing.Point(705, 42);
-            this.wmpKTV.Name = "wmpKTV";
-            this.wmpKTV.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpKTV.OcxState")));
-            this.wmpKTV.Size = new System.Drawing.Size(350, 300);
-            this.wmpKTV.TabIndex = 3;
             // 
             // button1
             // 
@@ -129,19 +136,20 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(791, 403);
+            this.button1.Location = new System.Drawing.Point(919, 647);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 29);
             this.button1.TabIndex = 4;
             this.button1.Text = "50";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // ptbAdd
             // 
             this.ptbAdd.BackColor = System.Drawing.Color.Transparent;
             this.ptbAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbAdd.BackgroundImage")));
             this.ptbAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbAdd.Location = new System.Drawing.Point(925, 387);
+            this.ptbAdd.Location = new System.Drawing.Point(860, 488);
             this.ptbAdd.Name = "ptbAdd";
             this.ptbAdd.Size = new System.Drawing.Size(60, 60);
             this.ptbAdd.TabIndex = 5;
@@ -153,7 +161,7 @@
             this.ptbJian.BackColor = System.Drawing.Color.Transparent;
             this.ptbJian.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbJian.BackgroundImage")));
             this.ptbJian.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbJian.Location = new System.Drawing.Point(701, 387);
+            this.ptbJian.Location = new System.Drawing.Point(706, 488);
             this.ptbJian.Name = "ptbJian";
             this.ptbJian.Size = new System.Drawing.Size(60, 60);
             this.ptbJian.TabIndex = 6;
@@ -165,7 +173,7 @@
             this.ptbMute.BackColor = System.Drawing.Color.Transparent;
             this.ptbMute.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbMute.BackgroundImage")));
             this.ptbMute.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbMute.Location = new System.Drawing.Point(992, 387);
+            this.ptbMute.Location = new System.Drawing.Point(967, 496);
             this.ptbMute.Name = "ptbMute";
             this.ptbMute.Size = new System.Drawing.Size(60, 60);
             this.ptbMute.TabIndex = 5;
@@ -178,11 +186,11 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(262, 8);
+            this.label11.Location = new System.Drawing.Point(856, 405);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 19);
+            this.label11.Size = new System.Drawing.Size(109, 19);
             this.label11.TabIndex = 0;
-            this.label11.Text = "正在播放";
+            this.label11.Text = "正在播放：";
             // 
             // label12
             // 
@@ -190,62 +198,18 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(511, 8);
+            this.label12.Location = new System.Drawing.Point(963, 405);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 19);
+            this.label12.Size = new System.Drawing.Size(89, 19);
             this.label12.TabIndex = 0;
-            this.label12.Text = "下一首";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Yellow;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(705, 315);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 33);
-            this.textBox1.TabIndex = 7;
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(471, 39);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(155, 25);
-            this.txtStatus.TabIndex = 8;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(962, 504);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "后台";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Yellow;
-            this.label13.Font = new System.Drawing.Font("楷体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(753, 315);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(319, 28);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "欢迎使用MyKTV点歌系统";
+            this.label12.Text = "下一首：";
             // 
             // ptbMute1
             // 
             this.ptbMute1.BackColor = System.Drawing.Color.Transparent;
             this.ptbMute1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbMute1.BackgroundImage")));
             this.ptbMute1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbMute1.Location = new System.Drawing.Point(992, 387);
+            this.ptbMute1.Location = new System.Drawing.Point(967, 496);
             this.ptbMute1.Name = "ptbMute1";
             this.ptbMute1.Size = new System.Drawing.Size(60, 60);
             this.ptbMute1.TabIndex = 5;
@@ -276,23 +240,15 @@
             this.play.TabStop = false;
             this.play.Click += new System.EventHandler(this.play_Click);
             // 
-            // txtName
-            // 
-            this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(237, 38);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(155, 25);
-            this.txtName.TabIndex = 8;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(-1, 0);
+            this.label14.Location = new System.Drawing.Point(15, 18);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(128, 28);
+            this.label14.Size = new System.Drawing.Size(89, 19);
             this.label14.TabIndex = 10;
             this.label14.Text = "开房时间";
             // 
@@ -303,11 +259,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label15.Location = new System.Drawing.Point(76, 0);
+            this.label15.Location = new System.Drawing.Point(107, 18);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(128, 28);
+            this.label15.Size = new System.Drawing.Size(89, 19);
             this.label15.TabIndex = 11;
             this.label15.Text = "当前时间";
             // 
@@ -315,25 +271,25 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Yellow;
-            this.label16.Location = new System.Drawing.Point(0, 35);
+            this.label16.Location = new System.Drawing.Point(27, 46);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(128, 28);
+            this.label16.Size = new System.Drawing.Size(64, 19);
             this.label16.TabIndex = 12;
-            this.label16.Text = "开房时间";
+            this.label16.Text = "19:20";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("宋体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.MintCream;
-            this.label17.Location = new System.Drawing.Point(90, 36);
+            this.label17.Location = new System.Drawing.Point(103, 46);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 28);
+            this.label17.Size = new System.Drawing.Size(97, 19);
             this.label17.TabIndex = 12;
-            this.label17.Text = "时间";
+            this.label17.Text = "19:20:20";
             // 
             // pictureBox3
             // 
@@ -431,16 +387,6 @@
             this.PicGlee.TabStop = false;
             this.PicGlee.Click += new System.EventHandler(this.PicGlee_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(682, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(408, 375);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // PicSinger
             // 
             this.PicSinger.BackColor = System.Drawing.Color.Transparent;
@@ -516,11 +462,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(12, 70);
+            this.panel1.Location = new System.Drawing.Point(12, 75);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(664, 486);
             this.panel1.TabIndex = 16;
             this.panel1.Visible = false;
+            // 
+            // txtStatus1
+            // 
+            this.txtStatus1.AutoSize = true;
+            this.txtStatus1.BackColor = System.Drawing.Color.Transparent;
+            this.txtStatus1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
+            this.txtStatus1.Location = new System.Drawing.Point(980, 453);
+            this.txtStatus1.Name = "txtStatus1";
+            this.txtStatus1.Size = new System.Drawing.Size(29, 19);
+            this.txtStatus1.TabIndex = 0;
+            this.txtStatus1.Text = "无";
             // 
             // panel2
             // 
@@ -530,7 +487,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox13);
             this.panel2.Controls.Add(this.lvwin);
-            this.panel2.Location = new System.Drawing.Point(1053, 81);
+            this.panel2.Location = new System.Drawing.Point(1061, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(933, 637);
             this.panel2.TabIndex = 0;
@@ -572,6 +529,7 @@
             this.lvwin.TabIndex = 0;
             this.lvwin.UseCompatibleStateImageBehavior = false;
             this.lvwin.View = System.Windows.Forms.View.Details;
+            this.lvwin.DoubleClick += new System.EventHandler(this.lvwin_DoubleClick);
             // 
             // name
             // 
@@ -589,7 +547,7 @@
             this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox12.Location = new System.Drawing.Point(861, 488);
+            this.pictureBox12.Location = new System.Drawing.Point(693, 389);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(58, 58);
             this.pictureBox12.TabIndex = 17;
@@ -637,16 +595,6 @@
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
-            // wmpCheer
-            // 
-            this.wmpCheer.Enabled = true;
-            this.wmpCheer.Location = new System.Drawing.Point(791, 438);
-            this.wmpCheer.Name = "wmpCheer";
-            this.wmpCheer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpCheer.OcxState")));
-            this.wmpCheer.Size = new System.Drawing.Size(75, 23);
-            this.wmpCheer.TabIndex = 0;
-            this.wmpCheer.Visible = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
@@ -665,36 +613,199 @@
             this.panel6.TabIndex = 18;
             this.panel6.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImage = global::MyKTV.Properties.Resources._50;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox16.Location = new System.Drawing.Point(783, 488);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox16.TabIndex = 5;
+            this.pictureBox16.TabStop = false;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.Controls.Add(this.wmpKTV);
+            this.panel7.Controls.Add(this.pictureBox17);
+            this.panel7.Location = new System.Drawing.Point(734, 52);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(350, 350);
+            this.panel7.TabIndex = 20;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox17.BackgroundImage = global::MyKTV.Properties.Resources.收起;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox17.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox17.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(43, 350);
+            this.pictureBox17.TabIndex = 22;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            this.pictureBox17.MouseEnter += new System.EventHandler(this.pictureBox17_MouseHover);
+            this.pictureBox17.MouseLeave += new System.EventHandler(this.pictureBox17_MouseLeave);
+            // 
+            // Out
+            // 
+            this.Out.Interval = 10;
+            this.Out.Tick += new System.EventHandler(this.Out_Tick);
+            // 
+            // Go
+            // 
+            this.Go.Interval = 10;
+            this.Go.Tick += new System.EventHandler(this.Go_Tick);
+            // 
+            // txtName
+            // 
+            this.txtName.AutoSize = true;
+            this.txtName.BackColor = System.Drawing.Color.Transparent;
+            this.txtName.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold);
+            this.txtName.Location = new System.Drawing.Point(891, 453);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(29, 19);
+            this.txtName.TabIndex = 0;
+            this.txtName.Text = "无";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(5, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "p";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel8.BackgroundImage")));
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.Controls.Add(this.label2);
+            this.panel8.Location = new System.Drawing.Point(227, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(718, 53);
+            this.panel8.TabIndex = 21;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 20;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.pictureBox1);
+            this.panel9.Controls.Add(this.pictureBox18);
+            this.panel9.Font = new System.Drawing.Font("宋体", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panel9.Location = new System.Drawing.Point(693, 121);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(252, 100);
+            this.panel9.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("宋体", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.Color.MintCream;
+            this.label3.Location = new System.Drawing.Point(119, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 38);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "0%";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(26, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(214, 15);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.BackgroundImage")));
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox18.Location = new System.Drawing.Point(13, 47);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox18.TabIndex = 2;
+            this.pictureBox18.TabStop = false;
+            // 
+            // timer3
+            // 
+            this.timer3.Enabled = true;
+            this.timer3.Interval = 500;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Enabled = true;
+            this.timer4.Interval = 5000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // wmpCheer
+            // 
+            this.wmpCheer.Enabled = true;
+            this.wmpCheer.Location = new System.Drawing.Point(838, 653);
+            this.wmpCheer.Name = "wmpCheer";
+            this.wmpCheer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpCheer.OcxState")));
+            this.wmpCheer.Size = new System.Drawing.Size(75, 23);
+            this.wmpCheer.TabIndex = 0;
+            this.wmpCheer.Visible = false;
+            // 
+            // wmpKTV
+            // 
+            this.wmpKTV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wmpKTV.Enabled = true;
+            this.wmpKTV.Location = new System.Drawing.Point(43, 0);
+            this.wmpKTV.Name = "wmpKTV";
+            this.wmpKTV.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmpKTV.OcxState")));
+            this.wmpKTV.Size = new System.Drawing.Size(307, 350);
+            this.wmpKTV.TabIndex = 21;
+            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1086, 659);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtStatus1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.wmpCheer);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.PicCount);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.wmpKTV);
             this.Controls.Add(this.PicSinger);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.ptbJian);
             this.Controls.Add(this.ptbMute1);
             this.Controls.Add(this.PicGlee);
@@ -708,23 +819,25 @@
             this.Controls.Add(this.play);
             this.Controls.Add(this.stop);
             this.Controls.Add(this.ptbMute);
+            this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.ptbAdd);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel7);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KTv";
+            this.Text = "王者KTV";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.SizeChanged += new System.EventHandler(this.FrmMain_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmMain_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.wmpKTV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbJian)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMute)).EndInit();
@@ -739,7 +852,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicGlee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSinger)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicCount)).EndInit();
@@ -753,33 +865,36 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wmpCheer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wmpKTV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private AxWMPLib.AxWindowsMediaPlayer wmpKTV;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox ptbAdd;
         private System.Windows.Forms.PictureBox ptbJian;
         private System.Windows.Forms.PictureBox ptbMute;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox ptbMute1;
         private System.Windows.Forms.PictureBox stop;
         private System.Windows.Forms.PictureBox play;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
@@ -788,7 +903,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox PicGlee;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox PicSinger;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox PicCount;
@@ -810,6 +924,24 @@
         private AxWMPLib.AxWindowsMediaPlayer wmpCheer;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private AxWMPLib.AxWindowsMediaPlayer wmpKTV;
+        private System.Windows.Forms.Timer Out;
+        private System.Windows.Forms.Timer Go;
+        private System.Windows.Forms.Label txtStatus1;
+        private System.Windows.Forms.Label txtName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
     }
 }
 

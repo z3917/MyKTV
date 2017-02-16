@@ -56,6 +56,8 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 1;
+            label11.Text ="一字歌";
+                
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -76,6 +78,8 @@ namespace MyKTV
             dv = ds.Tables["Info"].DefaultView;
             dataGridView1.DataSource = dv;
             this.Size = main.X;//本窗体的大小等于主窗体中的panel1的大小
+            panel1.Size = this.Size;
+            panel2.Size = panel1.Size;
             this.Location = main.zuobiao();//本窗体的左上角坐标等于主窗体中的panel1的左上角坐标
         }
         /// <summary>
@@ -89,6 +93,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 2;
+            label11.Text ="二字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -102,6 +107,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 3;
+            label11.Text =  "三字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -115,6 +121,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 4;
+            label11.Text =  "四字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -128,6 +135,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 5;
+            label11.Text = "五字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -141,6 +149,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 6;
+            label11.Text =  "六字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -154,6 +163,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 7;
+            label11.Text =  "七字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -167,6 +177,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 8;
+            label11.Text = "八字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -180,6 +191,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 9;
+            label11.Text = "九字歌";
             dv.RowFilter = "SongWordCount=" + count.ToString();
         }
         /// <summary>
@@ -193,6 +205,7 @@ namespace MyKTV
             panel1.Visible = false;
             panel2.Location = panel1.Location;
             count = 10;
+            label11.Text =  "十以上";
             dv.RowFilter = "SongWordCount>=" + count.ToString();
         }
         /// <summary>

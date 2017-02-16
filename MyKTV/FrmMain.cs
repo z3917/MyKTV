@@ -15,11 +15,14 @@ namespace MyKTV
     public partial class FrmMain : Form
     {
         int avg = 0;
+        int dian = 0;//已点用
         int t = 0;
         int x = 0;//动画用
         int y = 0;
+        int u = 0;//百分比
         AutoSizeFormClass asc = new AutoSizeFormClass();    //1.声明自适应类实例
         public int volume = 50;//初始音量
+
         bool a = true;//默认播放
         AnimateImage image;//背景动画
         public Size X;//放大前分组框panel1的大小
@@ -35,21 +38,17 @@ namespace MyKTV
 
         //已播放或未播放
         string wono = string.Empty;
+        private bool isOut = true;
 
-        FrmWordCount cont = new FrmWordCount();// 字数点歌
-        FrmWord word = new FrmWord();// 拼音点歌事件
-        FrmSongList list = new FrmSongList();// 歌曲排行按钮单击事件
-        Type type = new Type();// 分类点歌
-        FrmSingerType singer = new FrmSingerType();//歌手点歌
         public FrmMain()
         {
             InitializeComponent();
 
-            #region 设置背景动态图
-            image = new AnimateImage(Image.FromFile(@"E:\KTV\Photo\4.gif"));
-            image.OnFrameChanged += new EventHandler<EventArgs>(image_OnFrameChanged);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
-            #endregion
+            //   #region 设置背景动态图
+            //image = new AnimateImage(Image.FromFile(@"E:\KTV\Photo\t019595ec36b63cf922.gif"));
+            //image.OnFrameChanged += new EventHandler<EventArgs>(image_OnFrameChanged);
+            //SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            //#endregion
 
         }
         void image_OnFrameChanged(object sender, EventArgs e)
@@ -80,6 +79,26 @@ namespace MyKTV
             {
                 volume += 25;
                 wmpKTV.settings.volume = volume;
+                if (volume == 25)
+                {
+                    pictureBox16.BackgroundImage = Properties.Resources._25;
+                }
+                else if (volume == 50)
+                {
+                    pictureBox16.BackgroundImage = Properties.Resources._50;
+                }
+                else if (volume == 0)
+                {
+                    pictureBox16.BackgroundImage = Properties.Resources._0;
+                }
+                else if (volume == 75)
+                {
+                    pictureBox16.BackgroundImage = Properties.Resources._75;
+                }
+                else if (volume == 100)
+                {
+                    pictureBox16.BackgroundImage = Properties.Resources._100;
+                }
                 button1.Text = volume.ToString();
             }
             else
@@ -110,6 +129,26 @@ namespace MyKTV
             else
             {
                 MessageBox.Show("以达到最小音量！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (volume == 25)
+            {
+                pictureBox16.BackgroundImage = Properties.Resources._25;
+            }
+            else if (volume == 50)
+            {
+                pictureBox16.BackgroundImage = Properties.Resources._50;
+            }
+            else if (volume == 0)
+            {
+                pictureBox16.BackgroundImage = Properties.Resources._0;
+            }
+            else if (volume == 75)
+            {
+                pictureBox16.BackgroundImage = Properties.Resources._75;
+            }
+            else if (volume == 100)
+            {
+                pictureBox16.BackgroundImage = Properties.Resources._100;
             }
             if (wmpKTV.settings.volume == 0)
             {
@@ -150,20 +189,22 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            wmpKTV.URL = @"E:\KTV\Song\公安部-拒绝黄赌毒视频_baofeng.avi";
 
+
+            pictureBox16.BackgroundImage = Properties.Resources._50;
             //歌曲路径
             string sql = "select ResourcePath from Resource where ResourceType='Song'";
             KTVUtil.songPath = select1(sql).ToString();
 
             // Thread th = new Thread(image.Play);
             //th.Start();
-            //image.Play();//播放动态背景
+            //  image.Play();//播放动态背景
             ptbMute1.Visible = false;
             wmpKTV.settings.volume = volume;//默认声音50
+            pictureBox16.BackgroundImage = Properties.Resources._50;
             asc.controllInitializeSize(this); //记录窗体和其控件的初始位置和大小
             this.timer1.Interval = 1000;//timer间隔1000毫秒
-            this.timer1.Start();//启动timer控件
+            this.timer1.Enabled = true;//启动timer控件
 
             label16.Text = DateTime.Now.ToString("HH:mm");//开房时间
 
@@ -172,7 +213,20 @@ namespace MyKTV
             y = panel3.Height;
             double w = 520 / x;
             double h = 659 / y;
-         label15.Width = label15.Width *2;
+            //改变label字体大小
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label)
+                {
+                    control.Font = new Font(label15.Font.FontFamily, 22, label15.Font.Style);
+                }
+            }
+            label2.Font = new Font(label15.Font.FontFamily, 20, label15.Font.Style);
+            wmpKTV.Width = pictureBox17.Width;
+            panel7.Width = wmpKTV.Width;
+            label2.Text = string.Format("欢迎使用王者KTV {0} {1} {2} {3}   ", label11.Text, txtName.Text, label12.Text, txtStatus1.Text);
+             Out.Enabled = true;
+
         }
         /// <summary>
         /// 返回整型
@@ -198,18 +252,6 @@ namespace MyKTV
             }
             return name;
         }
-
-
-        /// <summary>
-        /// 管理员后台
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form admin = new Form();
-            admin.Show();
-        }
         /// <summary>
         /// 播放按钮单击事件
         /// </summary>
@@ -217,49 +259,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void play_Click(object sender, EventArgs e)
         {
-            if (lvwin.SelectedItems.Count > 0)
-            {
-
-                string name = lvwin.SelectedItems[0].Text;
-
-                string sql = "select SongUrl from SongInfo where SongName='" + name + "'";
-                string sql2 = "select SongUrl from songinfobo where SongName='" + name + "'";
-
-
-                panel2.Visible = true;
-                wmpKTV.URL = KTVUtil.songPath + "\\" + select1(sql);
-                //wmpktv2.URL = KTVUtil.songPath + "\\" + word.select1(sql2);
-                //wmpktv2.settings.volume = 0;
-
-                //屏幕上方显示当前播放歌曲专用
-                string sql3 = "select Songname from SongInfo where SongName='" + name + "'";
-                txtName.Text = select1(sql3).ToString();
-
-                //屏幕上方显示下一首播放歌曲专用
-                int clio = 0;
-                if (lvwin.SelectedIndices[0] != 0)
-                {
-                    clio = PlayList.avg[0];
-                }
-                else
-                {
-                    clio = PlayList.avg[1];
-                }
-                if (clio != 0)
-                {
-                    string sql5 = "select Songname from SongInfo where SongId='" + clio + "'";
-                    txtStatus.Text = select1(sql5).ToString();
-                }
-                else
-                {
-                    txtStatus.Text = "当前已是最后一首";
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("请选择一首歌后再播放！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+         
         }
         /// <summary>
         /// 暂停按钮单击事件
@@ -299,15 +299,21 @@ namespace MyKTV
         /// <param name="e"></param>
         private void FrmMain_Paint(object sender, PaintEventArgs e)
         {
-            lock (image.Image)
-            {
-                e.Graphics.DrawImage(image.Image, new Point(0, 0));
+            //lock (image.Image)
+            //{
+            //    e.Graphics.DrawImage(image.Image, new Point(0, 0));
 
-            }
-            label17.Text = DateTime.Now.ToString("HH:mm:ss");//当前时间
-            
-          
-
+            //}
+            panel9.Size= this.Size;
+            pictureBox18.Size = this.Size;
+            pictureBox18.Location = this.Location;
+            panel9.Location = this.Location;
+            pictureBox1.Width = 214;
+            pictureBox1.Height = 15;
+            pictureBox1.Left = panel9.Parent.Width/2 - pictureBox1.Width / 2;
+            pictureBox1.Top = panel9.Parent.Height/ 4 *3;
+            label3.Left = panel9.Parent.Width / 2 - label3.Width / 2;
+            label3.Top = panel9.Parent.Height / 4 * 3+24;
         }
         /// <summary>
         /// 重唱按钮单击事件
@@ -329,9 +335,12 @@ namespace MyKTV
         /// <param name="e"></param>
         private void PicExchange_Click(object sender, EventArgs e)
         {
+            label2.Left = 0;
             int i = 0;
             //音量到回50状态
             wmpKTV.settings.volume = 50;
+            pictureBox16.BackgroundImage = Properties.Resources._50;
+
             if (lvwin.SelectedItems.Count > 0 && lvwin.SelectedIndices[0] >= 0 && lvwin.SelectedIndices[0] < lvwin.Items.Count)
             {
                 i = lvwin.SelectedIndices[0];
@@ -373,7 +382,6 @@ namespace MyKTV
 
                 int cli = PlayList.avg[0];
 
-
                 string sql2 = "select SongUrl from SongInfo where SongId='" + cli + "'";
                 //  string sql3 = "select SongUrl from songinfobo where SongId='" + cli + "'";
 
@@ -385,18 +393,26 @@ namespace MyKTV
                 //屏幕上方显示当前播放歌曲专用
                 string sql4 = "select Songname from SongInfo where SongId='" + cli + "'";
                 txtName.Text = select1(sql4).ToString();
+                //更改播放状态
+                for (int j = 0; j < lvwin.Items.Count; j++)
+                {
+                    if (txtName.Text == lvwin.Items[j].Text)
+                    {
+                        lvwin.Items[j].SubItems[1].Text = "正在播放";
+                        break;
+                    }
 
-
+                }
                 //屏幕下方显示当前播放歌曲专用
                 int clio = PlayList.avg[1];
                 if (clio != 0)
                 {
                     string sql5 = "select Songname from SongInfo where SongId='" + clio + "'";
-                    txtStatus.Text = select1(sql5).ToString();
+                    txtStatus1.Text = select1(sql5).ToString();
                 }
                 else
                 {
-                    txtStatus.Text = "当前已是最后一首";
+                    txtStatus1.Text = "当前已是最后一首";
                 }
 
             }
@@ -417,7 +433,7 @@ namespace MyKTV
                         PlayList.avg[i] = PlayList.avg[i + 1];
 
                     }
-
+                    PlayList.avg[i] = 0;
                     int k = 0;
                     while (k <= songName.Length - 1)
                     {
@@ -446,34 +462,47 @@ namespace MyKTV
                     string sql2 = "select SongUrl from SongInfo where SongId='" + cli + "'";
                     //  string sql3 = "select SongUrl from songinfobo where SongId='" + cli + "'";
 
-                    panel2.Visible = true;
+                    //   panel2.Visible = true;
                     wmpKTV.URL = KTVUtil.songPath + "\\" + select1(sql2);
+
                     //wmpktv2.URL = KTVUtil.songPath + "\\" + word.select1(sql3);
                     //wmpktv2.settings.volume = 0;
 
                     //屏幕上方显示当前播放歌曲专用
                     string sql4 = "select Songname from SongInfo where SongId='" + cli + "'";
                     txtName.Text = select1(sql4).ToString();
+                    //更改播放状态
+                    for (int j = 0; j < lvwin.Items.Count ; j++)
+                    {
+                        if (txtName.Text == lvwin.Items[j].Text)
+                        {
+                            lvwin.Items[j].SubItems[1].Text = "正在播放";
+                            break;
+                        }
 
-
+                    }
                     //屏幕下方显示当前播放歌曲专用
                     int clio = PlayList.avg[1];
                     if (clio != 0)
                     {
                         string sql5 = "select Songname from SongInfo where SongId='" + clio + "'";
-                        txtStatus.Text = select1(sql5).ToString();
+                        txtStatus1.Text = select1(sql5).ToString();
                     }
                     else
                     {
-                        txtStatus.Text = "当前已是最后一首";
+                        txtStatus1.Text = "当前已是最后一首";
+
                     }
 
                 }
                 else
                 {
                     MessageBox.Show("当前已是最后一首,无法进行切歌操作!", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
+
+
         }
         /// <summary>
         /// 已点按钮事件
@@ -484,7 +513,17 @@ namespace MyKTV
         {
             panel2.Size = X;//已点列表的大小
             panel2.Location = panel1.Location;//已点列表的位置
-            panel2.Visible = true;
+            if (dian == 0)
+            {
+                panel2.Visible = true;
+                dian = 1;
+            }
+            else
+            {
+                panel2.Visible = false;
+                dian = 0;
+            }
+
 
             shuw();
         }
@@ -525,7 +564,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void PicSinger_Click(object sender, EventArgs e)
         {
-          
+
+            FrmSingerType singer = new FrmSingerType();
             singer.main = this;
             singer.Show();
         }
@@ -544,6 +584,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+
+            FrmSongList list = new FrmSongList();
             list.main = this;
             list.Show();
         }
@@ -554,6 +596,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void PicCount_Click(object sender, EventArgs e)
         {
+            FrmWordCount cont = new FrmWordCount();// 字数点歌
+
             cont.main = this;
             cont.Show();
         }
@@ -564,6 +608,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox7_Click(object sender, EventArgs e)
         {
+            Type type = new Type();// 分类点歌
             type.main = this;
             type.Show();
         }
@@ -575,7 +620,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-          
+            FrmWord word = new FrmWord();// 拼音点歌事件
             word.main = this;
             word.Show();
         }
@@ -586,7 +631,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-
+            frmVoid vo= new frmVoid();
+            vo.Show();
         }
 
         /// <summary>
@@ -618,8 +664,8 @@ namespace MyKTV
                 for (int i = 0; i < 100; i++)
                 {
                     Application.DoEvents();
-                    panel3.Width = panel3.Width +x/100;
-                    panel3.Height = panel3.Height +y/100;
+                    panel3.Width = panel3.Width + x / 100;
+                    panel3.Height = panel3.Height + y / 100;
 
                 }
                 t = 1;
@@ -633,11 +679,16 @@ namespace MyKTV
                     Application.DoEvents();
                     panel3.Width = panel3.Width - x / 100;
                     panel3.Height = panel3.Height - y / 100;
-                    
+
                 }
                 panel3.Visible = false;
                 t = 0;
             }
+        }
+        public void bo(string c)
+        {
+            frmVoid v = new frmVoid(); 
+            wmpKTV.URL = v.bo4;
         }
         /// <summary>
         /// 气氛
@@ -655,7 +706,7 @@ namespace MyKTV
             }
             else
             {
-                panel4.Visible =false;
+                panel4.Visible = false;
                 avg = 0;
             }
         }
@@ -677,7 +728,7 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("正在呼叫服务，请稍后……","温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+            MessageBox.Show("正在呼叫服务，请稍后……", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
         /// <summary>
         /// 首页
@@ -688,5 +739,200 @@ namespace MyKTV
         {
             this.Show();
         }
+
+        /// <summary>
+        /// KTV缩放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Out_Tick(object sender, EventArgs e)
+        {
+            panel7.Left += 3;
+         
+            if (panel7.Left >= panel7.Parent.Width -pictureBox17.Width)
+            {
+                Out.Enabled = false;
+                pictureBox17.BackgroundImage = Properties.Resources.展开;
+                isOut = false;
+             
+            }
+
+        }
+        /// <summary>
+        /// 动画播放器
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+
+            if (isOut)
+            {
+                Out.Enabled = true;
+
+            }
+            else
+            {
+                Go.Enabled = true;
+            }
+        }
+        /// <summary>
+        /// KTV显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Go_Tick(object sender, EventArgs e)
+        {
+            panel7.Left -= 3;
+         
+            if (panel7.Left <= panel7.Parent.Width - panel7.Width)
+            {
+                Go.Enabled = false;
+                pictureBox17.BackgroundImage = Properties.Resources.收起;
+                isOut = true;
+
+            }
+
+        }
+        /// <summary>
+        /// 时间控件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label17.Text = DateTime.Now.ToString("HH:mm:ss");//当前时间
+        }
+        /// <summary>
+        /// 滚动字幕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+           
+            if (txtStatus1.Text != "当前已是最后一首")
+            {
+                label2.Text = string.Format("欢迎使用王者KTV {0}{1} {2}{3}  ", label11.Text, txtName.Text, label12.Text, txtStatus1.Text);
+            }
+            else
+            {
+                label2.Text = string.Format("欢迎使用王者KTV {0}{1} {2}无  ", label11.Text, txtName.Text, label12.Text);
+            }
+            label2.Left -=1;
+            if (label2.Left == -label2.Width)
+            {
+                label2.Left= label12.Parent.Right;
+            }
+         
+        }
+
+        private void lvwin_DoubleClick(object sender, EventArgs e)
+        {
+            label2.Left = 0;
+            if (lvwin.SelectedItems.Count > 0)
+            {
+
+                string name = lvwin.SelectedItems[0].Text;
+
+                string sql = "select SongUrl from SongInfo where SongName='" + name + "'";
+                string sql2 = "select SongUrl from songinfobo where SongName='" + name + "'";
+
+
+                panel2.Visible = true;
+                wmpKTV.URL = KTVUtil.songPath + "\\" + select1(sql);
+
+                //屏幕上方显示当前播放歌曲专用
+                string sql3 = "select Songname from SongInfo where SongName='" + name + "'";
+                txtName.Text = select1(sql3).ToString();
+                //更改播放状态
+                lvwin.SelectedItems[0].SubItems[1]. Text = "正在播放";
+                for (int j = 0; j < lvwin.Items.Count; j++)
+                {
+                    if (j == lvwin.SelectedIndices[0])
+                    {
+                        lvwin.SelectedItems[0].SubItems[1].Text = "正在播放";
+                    }
+                    else
+                    { 
+                        lvwin.Items[j].SubItems[1].Text = "未播放";
+                    }
+                }
+                //屏幕上方显示下一首播放歌曲专用
+                int clio = 0;
+                if (lvwin.SelectedIndices[0] != 0)
+                {
+                    clio = PlayList.avg[0];
+                }
+                else
+                {
+                    clio = PlayList.avg[1];
+                }
+                if (clio != 0)
+                {
+                    string sql5 = "select Songname from SongInfo where SongId='" + clio + "'";
+                    txtStatus1.Text = select1(sql5).ToString();
+                }
+                else
+                {
+                    txtStatus1.Text = "当前已是最后一首";
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("请选择一首歌后再播放！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// 鼠标悬浮效果
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void pictureBox17_MouseHover(object sender, EventArgs e)
+        {
+            //Go.Enabled = false;
+            //Out.Enabled = true;
+        }
+
+        private void pictureBox17_MouseLeave(object sender, EventArgs e)
+        {
+       
+            //Out.Enabled = false;
+            //Go.Enabled = true;
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            Random Random1 = new Random();
+            int i2 = Random1.Next(1, 10);
+            if (i2>=100)
+            {
+                i2 = 100;
+            }
+            u = u + i2;
+            if (u >= 95)
+            {
+                u = 100;
+            }
+            label3.Text = u + "%";
+            if (u==100)
+            {
+                panel9.Visible = false;
+                timer2.Enabled = true;
+                wmpKTV.URL = @"E:\KTV\Song\公安部-拒绝黄赌毒视频_baofeng.avi";
+                timer3.Enabled = false;
+            }
+
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            Random Random1 = new Random();
+            int i4 = Random1.Next(0, 255);
+            int i3 = Random1.Next(0, 255);
+            label2.ForeColor = Color.FromArgb(i4, i3, 0, 0);
+        }
     }
-    }
+}

@@ -48,7 +48,8 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SongType = "戏曲";
+            SongType = "戏  曲";
+            label2.Text = SongType;
             BindType();
         }
         /// <summary>
@@ -58,7 +59,6 @@ namespace MyKTV
         /// <param name="e"></param>
         private void Type_Load(object sender, EventArgs e)
         {
-            panel2.Location = panel1.Location;
         }
         /// <summary>
         /// 绑定DataGridView数据
@@ -105,6 +105,7 @@ namespace MyKTV
         {
 
             SongType = "影视金曲";
+            label2.Text = SongType;
             BindType();
         }
         /// <summary>
@@ -115,6 +116,7 @@ namespace MyKTV
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             SongType = "游戏动漫";
+            label2.Text = SongType;
             BindType();
         }
         /// <summary>
@@ -125,6 +127,7 @@ namespace MyKTV
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             SongType = "热门流行";
+            label2.Text = SongType;
             BindType();
         }
         /// <summary>
@@ -135,6 +138,7 @@ namespace MyKTV
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             SongType = "经典老歌";
+            label2.Text = SongType;
             BindType();
         }
         /// <summary>
@@ -144,8 +148,10 @@ namespace MyKTV
         /// <param name="e"></param>
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            SongType = "儿歌";
+            SongType = "儿  歌";
+            label2.Text = SongType;
             BindType();
         }
+      
     }      
 }
